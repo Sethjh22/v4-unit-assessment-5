@@ -27,7 +27,7 @@ class Auth extends Component {
     axios.post('/api/auth/login', this.state)
       .then(res => {
         //code here
-        this.props.updateUser()
+        this.props.updateUser({username: res.data.username, profilePicture: res.data.profilePicture})
         this.props.history.push('/dash')
       })
       .catch(err => {
@@ -40,7 +40,7 @@ class Auth extends Component {
     axios.post('/api/auth/register', this.state)
       .then(res => {
         //code here
-        this.props.updateUser()
+        this.props.updateUser({username: res.data.username, profilePicture: res.data.profilePicture})
         this.props.history.push('/dash')
       })
       .catch(err => {
